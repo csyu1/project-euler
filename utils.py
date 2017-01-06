@@ -50,10 +50,20 @@ def sieve(n):
         while to_mark <= n:
             sieve_integers[to_mark] = False
             to_mark += idx
-    numbers = [i for i, prime_check
-               in enumerate(sieve_integers)
-               if prime_check]
-    return numbers
+    primes = [i for i, prime_check
+              in enumerate(sieve_integers)
+              if prime_check]
+    return primes
+
+
 assert(sieve(5) == [2, 3, 5])
 assert(sieve(10) == [2, 3, 5, 7])
 assert(sieve(20) == [2, 3, 5, 7, 11, 13, 17, 19])
+
+
+def nCr(n, k):
+    return math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
+
+
+assert(nCr(2, 1) == 2)
+assert(nCr(2, 2) == 1)
